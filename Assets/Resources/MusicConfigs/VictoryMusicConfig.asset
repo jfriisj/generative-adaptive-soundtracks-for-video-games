@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e312c610dcb09074b9b1e19b265516b7, type: 3}
+  m_Name: VictoryMusicConfig
+  m_EditorClassIdentifier: AdaptiveMusic::AdaptiveMusic.MusicConfigSO
+  zoneName: victory
+  layers:
+  - name: ambient
+    seed: 6000
+    gen_events: 128
+    bpm: 80
+    time_sig: 4/4
+    key_sig: C
+    instruments:
+    - Trumpet
+    - Orchestral Harp
+    - Tubular Bells
+    drum_kit: None
+    allow_cc: 1
+    temp: 0.85
+    top_p: 0.92
+    top_k: 40
+  - name: tension
+    seed: 6001
+    gen_events: 160
+    bpm: 100
+    time_sig: 4/4
+    key_sig: D
+    instruments:
+    - Brass Section
+    - Choir Aahs
+    - Timpani
+    drum_kit: Orchestra
+    allow_cc: 1
+    temp: 0.9
+    top_p: 0.93
+    top_k: 50
+  - name: combat
+    seed: 6002
+    gen_events: 192
+    bpm: 120
+    time_sig: 4/4
+    key_sig: C
+    instruments:
+    - Orchestra Hit
+    - Brass Section
+    - Choir Aahs
+    drum_kit: Power
+    allow_cc: 1
+    temp: 0.95
+    top_p: 0.92
+    top_k: 60

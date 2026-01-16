@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e312c610dcb09074b9b1e19b265516b7, type: 3}
+  m_Name: ForestMusicConfig
+  m_EditorClassIdentifier: AdaptiveMusic::AdaptiveMusic.MusicConfigSO
+  zoneName: forest
+  layers:
+  - name: ambient
+    seed: 999
+    gen_events: 128
+    bpm: 68
+    time_sig: 4/4
+    key_sig: G
+    instruments:
+    - Flute
+    - Pad 2 (warm)
+    - Bird Tweet
+    drum_kit: None
+    allow_cc: 1
+    temp: 0.85
+    top_p: 0.93
+    top_k: 40
+  - name: tension
+    seed: 1000
+    gen_events: 160
+    bpm: 85
+    time_sig: 4/4
+    key_sig: Em
+    instruments:
+    - String Ensemble 1
+    - Acoustic Guitar(nylon)
+    - Woodblock
+    drum_kit: None
+    allow_cc: 1
+    temp: 0.95
+    top_p: 0.96
+    top_k: 60
+  - name: combat
+    seed: 1001
+    gen_events: 192
+    bpm: 110
+    time_sig: 4/4
+    key_sig: Dm
+    instruments:
+    - Electric Guitar(clean)
+    - String Ensemble 2
+    - Taiko Drum
+    drum_kit: Standard
+    allow_cc: 1
+    temp: 1
+    top_p: 0.95
+    top_k: 80

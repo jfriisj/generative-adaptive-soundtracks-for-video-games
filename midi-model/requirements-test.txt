@@ -1,0 +1,3 @@
+# Requirements for MIDI generation test client
+websockets>=12.0
+mido>=1.3.0

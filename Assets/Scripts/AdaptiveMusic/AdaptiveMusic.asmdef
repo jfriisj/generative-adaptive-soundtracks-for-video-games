@@ -1,0 +1,20 @@
+{
+  "name": "AdaptiveMusic",
+  "rootNamespace": "AdaptiveMusic",
+  "references": [
+    "endel.nativewebsocket",
+    "Melanchall.DryWetMidi",
+    "GUID:82606d536e5b6a142a8b4d4879c5546c"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": true,
+  "precompiledReferences": [
+    "Melanchall.DryWetMidi.dll"
+  ],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

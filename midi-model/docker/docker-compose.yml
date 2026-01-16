@@ -1,0 +1,78 @@
+services:
+  # WebSocket MIDI Generation Server - CUDA Mode
+  midi-server-cuda:
+    profiles: ["cuda"]
+    env_file:
+      - ../../.env
+    build:
+      context: ../..
+      dockerfile: midi-model/docker/Dockerfile.true_streaming
+    container_name: midi-server-cuda
+    ports:
+      - "8766:8766"
+    environment:
+      - MODEL_PATH=/app/models
+      - ONNX_RUNTIME_DEVICE=cuda
+      - CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-0}
+      - LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/lib/x86_64-linux-gnu
+      - DEPLOYMENT_MODE=cuda
+    volumes:
+      - ../../models:/app/models
+      - ../test_bench/outputs:/app/outputs
+    networks:
+      test-bench-net:
+        aliases:
+          - midi-server
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    gpus: all
+    cpus: "2.0"
+    healthcheck:
+      test: ["CMD-SHELL", "nc -z localhost 8766 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    command: >
+      python /app/midi-model/websocket/ws_server_true_streaming.py --host 0.0.0.0 --port 8766 --device cuda --model-config default/config.json --model-base default/model_base.onnx --model-token default/model_token.onnx
+
+  midi-server-cpu:
+    env_file:
+      - ../../.env
+    build:
+      context: ../..
+      dockerfile: midi-model/docker/Dockerfile.true_streaming.cpu
+    container_name: midi-server-cpu
+    ports:
+      - "8766:8766"
+    environment:
+      - MODEL_PATH=/app/models
+      - ONNX_RUNTIME_DEVICE=cpu
+      - DEPLOYMENT_MODE=cpu
+    volumes:
+      - ../../models:/app/models
+      - ../test_bench/outputs:/app/outputs
+    networks:
+      test-bench-net:
+        aliases:
+          - midi-server
+    cpus: "4.0"
+    mem_limit: 4g
+    healthcheck:
+      test: ["CMD-SHELL", "nc -z localhost 8766 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    command: >
+      python /app/midi-model/websocket/ws_server_true_streaming.py --host 0.0.0.0 --port 8766 --device cpu --model-config default/config.json --model-base default/model_base.onnx --model-token default/model_token.onnx
+
+
+networks:
+  test-bench-net:
+    driver: bridge

@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e312c610dcb09074b9b1e19b265516b7, type: 3}
+  m_Name: SafeZoneMusicConfig
+  m_EditorClassIdentifier: AdaptiveMusic::AdaptiveMusic.MusicConfigSO
+  zoneName: safe
+  layers:
+  - name: ambient
+    seed: 5000
+    gen_events: 128
+    bpm: 60
+    time_sig: 4/4
+    key_sig: C
+    instruments:
+    - Music Box
+    - Pad 2 (warm)
+    - Acoustic Guitar(nylon)
+    drum_kit: None
+    allow_cc: 1
+    temp: 0.78
+    top_p: 0.9
+    top_k: 25
+  - name: tension
+    seed: 5001
+    gen_events: 160
+    bpm: 72
+    time_sig: 4/4
+    key_sig: Am
+    instruments:
+    - Acoustic Guitar(nylon)
+    - Voice Oohs
+    - Vibraphone
+    drum_kit: None
+    allow_cc: 1
+    temp: 0.85
+    top_p: 0.92
+    top_k: 35
+  - name: combat
+    seed: 5002
+    gen_events: 192
+    bpm: 88
+    time_sig: 4/4
+    key_sig: Em
+    instruments:
+    - Electric Piano 1
+    - String Ensemble 1
+    - Pizzicato Strings
+    drum_kit: Jazz
+    allow_cc: 1
+    temp: 0.92
+    top_p: 0.93
+    top_k: 50

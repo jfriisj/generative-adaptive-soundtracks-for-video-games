@@ -1,0 +1,44 @@
+# Use NVIDIA CUDA base image with cuDNN runtime for GPU acceleration
+FROM nvidia/cuda:12.4.1-cudnn-runtime-ubuntu22.04
+
+WORKDIR /app
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=UTC
+
+RUN apt-get update && apt-get install -y \
+    python3.11 \
+    python3.11-venv \
+    python3-pip \
+    fluidsynth \
+    fluid-soundfont-gm \
+    wget \
+    git \
+    curl \
+    netcat-openbsd \
+    && rm -rf /var/lib/apt/lists/* \
+    && ln -sf /usr/bin/python3.11 /usr/bin/python \
+    && python -m pip install --upgrade pip setuptools wheel
+
+# Copy requirements from the correct path (relative to build context)
+COPY midi-model/src/requirements.txt /tmp/requirements.txt
+RUN pip install --no-cache-dir -r /tmp/requirements.txt
+
+# Copy entire midi-model directory
+COPY midi-model /app/midi-model
+
+# Set Python path to include src
+ENV PYTHONPATH=/app/midi-model/src:$PYTHONPATH
+
+# Download soundfont if not present
+RUN if [ ! -f soundfont.sf2 ]; then \
+    wget -O soundfont.sf2 "https://huggingface.co/skytnt/midi-model/resolve/main/soundfont.sf2"; \
+    fi
+
+RUN mkdir -p outputs sample lightning_logs models
+
+EXPOSE 8766
+
+ENV LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/lib/x86_64-linux-gnu:${LD_LIBRARY_PATH}
+
+CMD ["python", "/app/midi-model/websocket/ws_server_true_streaming.py", "--host", "0.0.0.0", "--port", "8766", "--device", "cuda"]

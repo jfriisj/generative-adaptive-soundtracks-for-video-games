@@ -1,0 +1,70 @@
+# Root Docker build context exclusions
+.git/
+.gitignore
+.gitattributes
+
+# Unity large/generated folders
+Library/
+Temp/
+Logs/
+Obj/
+[Bb]uild*/
+[Bb]uilds/
+UserSettings/
+
+# Cache and dependencies
+node_modules/
+packages/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Python caches (if server code copied)
+__pycache__/
+*.py[cod]
+*.so
+
+# Environment and secrets
+.env*
+*.key
+*.crt
+
+# Tests & coverage
+coverage/
+htmlcov/
+test-results/
+
+# IDE/editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker related
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# Media & large assets that should be mounted or downloaded
+*.sf2
+*.wav
+*.mp3
+*.flac
+
+# Generated MIDI outputs
+outputs/*.mid
+outputs/*.midi
+
+# Large model files (temporarily included for Burn ONNX import during build)
+# If image size becomes an issue, re-enable these exclusions and adjust build to copy only needed files.
+# models/
+# midi-model/models/
+# *.onnx
+*.pth
+*.bin
+*.safetensors
+*.ckpt

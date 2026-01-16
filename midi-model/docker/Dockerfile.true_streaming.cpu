@@ -1,0 +1,40 @@
+# CPU-only image for the TRUE streaming WebSocket server.
+# Uses a lightweight Python base image (no CUDA).
+
+FROM python:3.11-slim
+
+WORKDIR /app
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=UTC
+
+# Minimal runtime deps:
+# - fluidsynth + soundfont: MIDI rendering / validation utilities used by midi-model
+# - netcat-openbsd: for compose healthcheck (nc)
+RUN apt-get update && apt-get install -y \
+    fluidsynth \
+    fluid-soundfont-gm \
+    wget \
+    netcat-openbsd \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Python deps (CPU requirements)
+COPY midi-model/src/requirements.cpu.txt /tmp/requirements.txt
+RUN pip install --no-cache-dir --upgrade pip setuptools wheel \
+    && pip install --no-cache-dir -r /tmp/requirements.txt
+
+# Copy the application
+COPY midi-model /app/midi-model
+
+ENV PYTHONPATH=/app/midi-model/src:$PYTHONPATH
+
+# Download soundfont if not present
+RUN if [ ! -f soundfont.sf2 ]; then \
+    wget -O soundfont.sf2 "https://huggingface.co/skytnt/midi-model/resolve/main/soundfont.sf2"; \
+    fi
+
+RUN mkdir -p outputs sample lightning_logs models
+
+EXPOSE 8766
+
+CMD ["python", "/app/midi-model/websocket/ws_server_true_streaming.py", "--host", "0.0.0.0", "--port", "8766", "--device", "cpu"]

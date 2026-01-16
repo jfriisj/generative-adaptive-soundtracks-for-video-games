@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e312c610dcb09074b9b1e19b265516b7, type: 3}
+  m_Name: OceanMusicConfig
+  m_EditorClassIdentifier: AdaptiveMusic::AdaptiveMusic.MusicConfigSO
+  zoneName: ocean
+  layers:
+  - name: ambient
+    seed: 30000
+    gen_events: 128
+    bpm: 72
+    time_sig: 6/8
+    key_sig: Em
+    instruments:
+    - Pad 8 (sweep)
+    - FX 1 (rain)
+    - Seashore
+    drum_kit: None
+    allow_cc: 1
+    temp: 0.8
+    top_p: 0.92
+    top_k: 30
+  - name: tension
+    seed: 30001
+    gen_events: 160
+    bpm: 88
+    time_sig: 6/8
+    key_sig: Am
+    instruments:
+    - SynthStrings 1
+    - Blown Bottle
+    - FX 2 (soundtrack)
+    drum_kit: None
+    allow_cc: 1
+    temp: 0.92
+    top_p: 0.95
+    top_k: 50
+  - name: combat
+    seed: 30002
+    gen_events: 192
+    bpm: 115
+    time_sig: 4/4
+    key_sig: Dm
+    instruments:
+    - SynthBrass 1
+    - FX 4 (atmosphere)
+    - Electric Bass(pick)
+    drum_kit: Electric
+    allow_cc: 1
+    temp: 0.98
+    top_p: 0.95
+    top_k: 70

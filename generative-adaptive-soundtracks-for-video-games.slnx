@@ -1,0 +1,10 @@
+﻿<Solution>
+  <Project Path="MidiPlayer.Run.csproj" />
+  <Project Path="MidiPlayer.Editor.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="MidiPlayer.Demo.csproj" />
+  <Project Path="AdaptiveMusic.csproj" />
+  <Project Path="AdaptiveMusic.Tests.csproj" />
+  <Project Path="Assembly-CSharp-Editor.csproj" />
+  <Project Path="AdaptiveMusic.Editor.csproj" />
+</Solution>

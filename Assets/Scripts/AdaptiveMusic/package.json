@@ -1,0 +1,35 @@
+{
+  "name": "com.adaptivemusic.system",
+  "version": "1.0.0",
+  "displayName": "Adaptive Music System",
+  "description": "Dynamic music system that adjusts layers based on game state. Requests MIDI from WebSocket server, renders to audio, and smoothly transitions between ambient, tension, and combat layers.",
+  "unity": "2021.3",
+  "keywords": [
+    "audio",
+    "music",
+    "adaptive",
+    "dynamic",
+    "midi",
+    "websocket",
+    "procedural"
+  ],
+  "author": {
+    "name": "Your Name",
+    "url": "https://github.com/yourusername/adaptive-music"
+  },
+  "dependencies": {
+    "com.unity.modules.audio": "1.0.0"
+  },
+  "samples": [
+    {
+      "displayName": "Demo Scene",
+      "description": "Complete demo scene with zone switching and danger control",
+      "path": "Samples~/Demo"
+    },
+    {
+      "displayName": "Example Configs",
+      "description": "Example zone configurations for forest, dungeon, and boss areas",
+      "path": "Samples~/Configs"
+    }
+  ]
+}

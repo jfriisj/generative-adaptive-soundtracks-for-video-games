@@ -1,0 +1,6 @@
+# Minimal requirements for WebSocket MIDI server
+numpy
+torch
+onnxruntime
+websockets>=12
+Pillow
