@@ -76,7 +76,7 @@ fmod_editor.log
 *.log
 .gemini/
 # Environment and coverage additions
-.env*
+.env
 coverage/
 test-results/
 models/
