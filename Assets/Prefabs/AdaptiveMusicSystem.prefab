@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6266621611604845251
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8521416686946606114}
+  - component: {fileID: 8830868029526623751}
+  m_Layer: 0
+  m_Name: AdaptiveMusicSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8521416686946606114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6266621611604845251}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8830868029526623751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6266621611604845251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148eae72a8d4d584da4820299d60b6c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AdaptiveMusic::AdaptiveMusic.AdaptiveMusicSystem
+  clientType: 0
+  serverUrl: ws://localhost:8766
+  pipeName: AdaptiveMusicPipe
+  currentZoneConfig: {fileID: 11400000, guid: 74cb85f76cbe0464aaaf714a35061d90, type: 2}
+  mixer: {fileID: 24100000, guid: edf89c95c86dfa043bbd4c3c12ebe644, type: 2}
+  layerSources:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  dangerLevel: 0
+  useManualDangerLevel: 0
+  tensionThreshold: 0.3
+  combatThreshold: 0.7
+  isInitialized: 1
+  isConnectedToServer: 1
+  currentZoneName: 
+  playerIsDead: 0
+  deathMusicRequested: 0
+  debugOverrides:
+    enabled: 0
+    bypassMidiCache: 1
+    overrideSeed: 0
+    seed: 1234
+    overrideBpm: 0
+    bpm: 80
+    overrideGenEvents: 0
+    gen_events: 256
+    overrideTimeSig: 0
+    time_sig: 4/4
+    overrideKeySig: 0
+    key_sig: auto
+    overrideSampling: 0
+    temp: 0.85
+    top_p: 0.95
+    top_k: 50
+    overrideInstruments: 0
+    instrument1: 
+    instrument2: 
+    instrument3: 
+    overrideDrumKit: 0
+    drum_kit: None

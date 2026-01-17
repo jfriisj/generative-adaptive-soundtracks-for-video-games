@@ -14,4 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Static Scene.unity
     guid: 4b154716e26b8854aa8fb700cb226b57
+  - enabled: 1
+    path: Assets/Scenes/AdaptiveMusic.unity
+    guid: 951f9b8082d561a44a52a4a74df940b2
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0

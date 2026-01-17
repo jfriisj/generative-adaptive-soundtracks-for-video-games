@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8729875389176293300
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6992170860728325627}
+  - component: {fileID: 5088432285053574100}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6992170860728325627
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8729875389176293300}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5088432285053574100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8729875389176293300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27bd2df6fb5b0374ab690957a065fcf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene:
+    m_Handle: 0
+  adaptiveMusicSystem: {fileID: 0}
+  forestZone: {fileID: 11400000, guid: 446ad1bc27bed9940b0b3ab8616fd71b, type: 2}
+  oceanZone: {fileID: 11400000, guid: 2dab618897068614ea1b45432fe709f8, type: 2}
+  cherryZone: {fileID: 11400000, guid: 4417d854fa5ec694b8d12803da05de5d, type: 2}
+  mountainZone: {fileID: 11400000, guid: 02a9c18919087384c916a182e9f2cfe3, type: 2}
+  safeZone: {fileID: 11400000, guid: 74cb85f76cbe0464aaaf714a35061d90, type: 2}
+  victoryZone: {fileID: 11400000, guid: d80d256b60ac8fa41be3b7069e3aed39, type: 2}
+  isStatic: 0
+  playerState: 0
+  woods: 0
+  beach: 0
+  orchard: 0
+  cliffs: 0

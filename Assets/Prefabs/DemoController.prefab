@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3362980224286518585
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6201633422830351139}
+  - component: {fileID: 8719823106128480726}
+  m_Layer: 0
+  m_Name: DemoController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6201633422830351139
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3362980224286518585}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8719823106128480726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3362980224286518585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cac16d8f384697144962b0d6ee9d61f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AdaptiveMusic::AdaptiveMusic.DemoController
+  musicSystem: {fileID: 0}
+  gameStateTracker: {fileID: 0}
+  forestConfig: {fileID: 11400000, guid: 446ad1bc27bed9940b0b3ab8616fd71b, type: 2}
+  mountainConfig: {fileID: 11400000, guid: 02a9c18919087384c916a182e9f2cfe3, type: 2}
+  oceanConfig: {fileID: 11400000, guid: 2dab618897068614ea1b45432fe709f8, type: 2}
+  cherryConfig: {fileID: 11400000, guid: 4417d854fa5ec694b8d12803da05de5d, type: 2}
+  safeConfig: {fileID: 11400000, guid: 74cb85f76cbe0464aaaf714a35061d90, type: 2}
+  victoryConfig: {fileID: 11400000, guid: d80d256b60ac8fa41be3b7069e3aed39, type: 2}
+  manualDangerLevel: 0
+  useManualDanger: 0
+  manualHealth: 1
+  showDebugUI: 1
+  statusUpdateInterval: 0.5
+  useAutoZoneSwitching: 0
+  showGenerationOverrides: 1

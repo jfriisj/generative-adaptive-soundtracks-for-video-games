@@ -103,22 +103,6 @@ docker compose -f midi-model/docker/docker-compose.yml stop midi-server-cuda
 - Open the scene `Assets/Scenes/AdaptiveMusic.unity`.
 - Press Play.
 
----
-
-## Clone & Play (AdaptiveMusic scene)
-
-If you clone this repo on a new machine and just want to press Play:
-
-1) Clone the repo (and pull LFS if enabled in your environment).
-2) Open the project in Unity and let it finish importing.
-3) The editor auto-sets the Play Mode start scene to `Assets/Scenes/AdaptiveMusic.unity`.
-4) Press Play from any scene.
-
-If Play Mode doesn’t start in AdaptiveMusic, use:
-
-- `Tools -> AdaptiveMusic -> Set Play Mode Start Scene`
-- (Optional) `Tools -> AdaptiveMusic -> Auto Set Play Mode Start Scene`
-
 If you don’t hear music immediately, check the Unity Console for `[AdaptiveMusicSystem]` / `[WebSocketClient]` logs and ensure the container is up and listening on port `8766`.
 
 ---
