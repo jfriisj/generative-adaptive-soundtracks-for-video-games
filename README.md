@@ -37,6 +37,11 @@ Pick ONE of the server options below (Docker CPU, Docker GPU, or Local Python), 
 
 ### 1) Start a MIDI server
 
+Copy .env.example to `.env` and adjust settings as needed.
+```bash
+cp midi-model/docker/.env.example midi-model/docker/.env
+```
+
 #### Option A — Docker (CPU)
 
 Size small models, no GPU needed slow generation.
@@ -44,6 +49,7 @@ Size small models, no GPU needed slow generation.
 ```bash
 # Build image (optional)
 docker compose -f midi-model/docker/docker-compose.yml build midi-server-cpu
+compose -f 'midi-model\docker\docker-compose.yml' up -d --build 'midi-server-cpu'
 
 # Run
 docker compose -f midi-model/docker/docker-compose.yml up -d --build midi-server-cpu
