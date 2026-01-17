@@ -17,7 +17,13 @@ This repository is primarily a research & integration project for generative ada
 
 ---
 
-docker run --rm --gpus all nvidia/cuda:12.1.0-base-ubuntu22.04 nvidia-smi
+## Python version note
+
+For the local Python servers/tools in this repo, use **Python 3.10–3.12**.
+
+- ONNX Runtime wheels may not be available for the newest Python versions immediately (e.g. Python 3.14).
+- On Windows, prefer the `py` launcher to explicitly select a supported version.
+
 ## Quick Start (Run the Unity demo)
 
 The Unity project expects a MIDI generator server reachable via WebSocket (default):
@@ -86,7 +92,10 @@ This runs the WebSocket server directly on your machine.
 Windows (PowerShell) example:
 
 ```powershell
-py -m venv .venv-ws
+# Pick a supported Python (recommended: 3.12)
+py -3.12 --version
+
+py -3.12 -m venv .venv-ws
 .\.venv-ws\Scripts\Activate.ps1
 python -m pip install -U pip
 pip install -r midi-model/websocket/requirements-websocket.txt
@@ -155,7 +164,7 @@ For automated runs/validation there is a separate compose setup under `midi-mode
 ## Requirements
 
 - Unity: see `ProjectSettings/ProjectVersion.txt`
-- Python: 3.10+
+- Python: **3.10–3.12 recommended** (ONNX Runtime may not support the newest Python versions yet)
 - For GPU: CUDA + appropriate drivers and ONNX Runtime / PyTorch as needed by the model
 
 ---
