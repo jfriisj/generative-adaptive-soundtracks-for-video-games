@@ -62,7 +62,7 @@ public class AudioManager : MonoBehaviour
         UpdateZone();
     }
 
-    public void FMODResetParams()
+    public void ResetBiomeInfluences()
     {
         woods = 0f;
         beach = 0f;
@@ -71,7 +71,7 @@ public class AudioManager : MonoBehaviour
         UpdateZone();
     }
 
-    public void FMODUpdateParam()
+    public void ApplyBiomeAndCombatState()
     {
         UpdateZone();
 
@@ -90,7 +90,7 @@ public class AudioManager : MonoBehaviour
         if (adaptiveMusicSystem == null) return;
 
         // Determine which zone to play based on biome parameters
-        // Map FMOD-style params to actual biome configs
+        // Map biome influence values to actual biome configs
         MusicConfigSO targetZone = safeZone ?? forestZone; // Default to safe zone
 
         if (cliffs > 0.5f && mountainZone != null)
@@ -118,7 +118,7 @@ public class AudioManager : MonoBehaviour
     {
         if (adaptiveMusicSystem == null || victoryZone == null) return;
         
-        FMODResetParams();
+        ResetBiomeInfluences();
         currentZone = victoryZone;
         adaptiveMusicSystem.ChangeZone(victoryZone);
         Debug.Log("[AudioManager] Playing victory music!");

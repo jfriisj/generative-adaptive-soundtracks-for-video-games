@@ -24,14 +24,14 @@ public class CombarChecker : MonoBehaviour
             audioManager.playerState = 0f;
             inCombat = false;
             if (!audioManager.isStatic)
-                audioManager.FMODUpdateParam();
+                audioManager.ApplyBiomeAndCombatState();
         }
         else
         {
             audioManager.playerState = 1f;
             if (!audioManager.isStatic)
                 if (!inCombat)
-                    audioManager.FMODUpdateParam();
+                    audioManager.ApplyBiomeAndCombatState();
             inCombat = true;
         }
     }

@@ -41,7 +41,7 @@ public class PauseGame : MonoBehaviour
     public void Unstuck()
     {
         var a = audioManager.GetComponent<AudioManager>();
-        a.FMODResetParams();
+        a.ResetBiomeInfluences();
         Player.transform.position = new Vector3(0, 0, Player.transform.position.z);
         Camera.transform.position = new Vector3(0, 0, Camera.transform.position.z);
         UnPause();

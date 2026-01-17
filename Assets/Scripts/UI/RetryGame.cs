@@ -8,7 +8,7 @@ public class RetryGame : MonoBehaviour
     public void Retry()
     {
         var a = audioManager.GetComponent<AudioManager>();
-        a.FMODResetParams();
+        a.ResetBiomeInfluences();
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

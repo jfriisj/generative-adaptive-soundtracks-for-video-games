@@ -20,31 +20,31 @@ public class BiomeChanger : MonoBehaviour
             {
                 case "Forest":
                     currentBiome = "Forest";
-                    audioManager.FMODResetParams();
+                    audioManager.ResetBiomeInfluences();
                     audioManager.woods = 1f;
                     if (!audioManager.isStatic)
-                        audioManager.FMODUpdateParam();
+                        audioManager.ApplyBiomeAndCombatState();
                     break;
                 case "Ocean":
                     currentBiome = "Ocean";
-                    audioManager.FMODResetParams();
+                    audioManager.ResetBiomeInfluences();
                     audioManager.beach = 1f;
                     if (!audioManager.isStatic)
-                        audioManager.FMODUpdateParam();
+                        audioManager.ApplyBiomeAndCombatState();
                     break;
                 case "Cherry":
                     currentBiome = "Cherry";
-                    audioManager.FMODResetParams();
+                    audioManager.ResetBiomeInfluences();
                     audioManager.orchard = 1f;
                     if (!audioManager.isStatic)
-                        audioManager.FMODUpdateParam();
+                        audioManager.ApplyBiomeAndCombatState();
                     break;
                 case "Mountain":
                     currentBiome = "Mountain";
-                    audioManager.FMODResetParams();
+                    audioManager.ResetBiomeInfluences();
                     audioManager.cliffs = 1f;
                     if (!audioManager.isStatic)
-                        audioManager.FMODUpdateParam();
+                        audioManager.ApplyBiomeAndCombatState();
                     break;
             }
     }
