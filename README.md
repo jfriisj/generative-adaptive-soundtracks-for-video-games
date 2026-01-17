@@ -21,8 +21,6 @@ This repository is primarily a research & integration project for generative ada
 
 For the local Python servers/tools in this repo, use **Python 3.10–3.12**.
 
-- ONNX Runtime wheels may not be available for the newest Python versions immediately (e.g. Python 3.14).
-- On Windows, prefer the `py` launcher to explicitly select a supported version.
 
 ## Quick Start (Run the Unity demo)
 
@@ -37,9 +35,9 @@ Pick ONE of the server options below (Docker CPU, Docker GPU, or Local Python), 
 - Unity version: see `ProjectSettings/ProjectVersion.txt`
 - Import `BclPackage.unitypackage` (required): Unity → `Assets -> Import Package -> Custom Package...` → select `BclPackage.unitypackage` from the repo root.
 
-### 1) Start a MIDI server (choose one)
+### 1) Start a MIDI server
 
-#### Option A — Docker (CPU) (recommended)
+#### Option A — Docker (CPU)
 
 Size small models, no GPU needed slow generation.
 
@@ -83,7 +81,7 @@ Stop:
 docker compose -f midi-model/docker/docker-compose.yml stop midi-server-cuda
 ```
 
-#### Option C — Local Python (no Docker)
+#### Option C — Local Python
 
 smaller models, no GPU needed slow generation.
 
@@ -122,9 +120,9 @@ If you don’t hear music immediately:
 
 ---
 
-## Architecture (high level)
+## Architecture
 
-Unity <--> MIDI Server (WebSocket or Named Pipe)
+Unity <--> MIDI Server (WebSocket)
 
 - `Assets/Scripts/AdaptiveMusic/AdaptiveMusicSystem.cs`: orchestrates generation and playback
 - `NamedPipeMusicClient.cs`: high-performance IPC client
@@ -135,7 +133,7 @@ The Docker WebSocket server uses ONNX Runtime and loads models from `models/defa
 
 ---
 
-## Project structure (high level)
+## Project structure
 
 ```
 BclPro_AI_Ed/
