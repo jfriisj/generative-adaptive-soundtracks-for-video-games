@@ -15,7 +15,7 @@ MonoBehaviour:
   zoneName: safe
   layers:
   - name: ambient
-    seed: 5000
+    seed: 2147483647
     gen_events: 128
     bpm: 60
     time_sig: 4/4
@@ -30,7 +30,7 @@ MonoBehaviour:
     top_p: 0.9
     top_k: 25
   - name: tension
-    seed: 5001
+    seed: 2147483647
     gen_events: 160
     bpm: 72
     time_sig: 4/4
@@ -45,7 +45,7 @@ MonoBehaviour:
     top_p: 0.92
     top_k: 35
   - name: combat
-    seed: 5002
+    seed: 2147483647
     gen_events: 192
     bpm: 88
     time_sig: 4/4

@@ -94,9 +94,7 @@ smaller models, no GPU needed slow generation.
 
 This runs the WebSocket server directly on your machine.
 
-Windows (PowerShell) example:
-
-```powershell
+```bash
 # Pick a supported Python (recommended: 3.12)
 py -3.12 --version
 
@@ -108,11 +106,6 @@ pip install -r midi-model/websocket/requirements-websocket.txt
 # CPU
 python midi-model/websocket/ws_server_true_streaming.py --device cpu --host 127.0.0.1 --port 8766
 ```
-
-GPU note:
-
-- If you want ONNX Runtime CUDA, install `onnxruntime-gpu` and run with `--device cuda`.
-- If CUDA provider isn’t available, the server will fall back to CPU.
 
 ### 2) Run the Unity demo scene
 
@@ -154,22 +147,4 @@ BclPro_AI_Ed/
 
 ---
 
-## Running & testing notes
 
-- The Unity side supports two client types: WebSocket and Named Pipe. WebSocket is the simplest to run across platforms; Named Pipes provide lower latency on supported platforms.
-- The Python model entrypoint for local testing is `midi-model/src/app.py`. There is also `midi-model/src/app_onnx.py` for ONNX runtime usage.
-- Use `midi-model/src/check_server.py` for a simple health-check of a running server.
-
-### Test bench (optional)
-
-For automated runs/validation there is a separate compose setup under `midi-model/test_bench/`.
-
----
-
-## Requirements
-
-- Unity: see `ProjectSettings/ProjectVersion.txt`
-- Python: **3.10–3.12 recommended** (ONNX Runtime may not support the newest Python versions yet)
-- For GPU: CUDA + appropriate drivers and ONNX Runtime / PyTorch as needed by the model
-
----
