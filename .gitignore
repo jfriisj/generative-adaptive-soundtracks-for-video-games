@@ -47,12 +47,11 @@ sysinfo.txt
 .BAK
 
 ### FMOD Unity Integration ###
-# Never ignore DLLs in the FMOD subfolder, so make sure that the FMOD-folder is in the correct path.
 !/[Aa]ssets/Plugins/FMOD/**/*.dll
 
-# Don't ignore images and gizmos used by FMOD in the Unity Editor
-!/[Aa}ssets/Gizmos/FMOD/*
-!/[Aa}ssets/Editor Default Resources/FMOD/*
+# Corrected typos below (was '}')
+!/[Aa]ssets/Gizmos/FMOD/*
+!/[Aa]ssets/Editor Default Resources/FMOD/*
 
 # Ignore the Cache-file since it is updated locally either way
 /[Aa]ssets/**/FMODStudioCache.asset
@@ -64,16 +63,13 @@ sysinfo.txt
 fmod.log
 fmod_editor.log
 
-
-
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
-*.meta
-*.meta
+
+# REMOVED *.meta FROM HERE - THIS WAS THE CAUSE
 *.dwlt
 
-*.log
 .gemini/
 # Environment and coverage additions
 .env
@@ -81,12 +77,10 @@ coverage/
 test-results/
 models/
 
-
 # remove the mp3, mp4, wav files generated during transcription
 *.mp3
 *.mp4
 *.wav
-
 
 .github/
 .vscode/

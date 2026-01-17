@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: bbd9ac571b739ab43a234ef6db4eded8
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107994
+  packageName: Maestro - Midi Player Tool Kit - Free
+  packageVersion: 2.16.2
+  assetPath: Assets/MidiPlayer/Resources/MidiDB/Beethoven-sonata-14-3.bytes
+  uploadId: 813236

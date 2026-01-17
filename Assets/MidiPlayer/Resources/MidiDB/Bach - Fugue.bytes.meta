@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 3ab071589edffe04b883d2b03d72bd2f
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107994
+  packageName: Maestro - Midi Player Tool Kit - Free
+  packageVersion: 2.16.2
+  assetPath: Assets/MidiPlayer/Resources/MidiDB/Bach - Fugue.bytes
+  uploadId: 813236

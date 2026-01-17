@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: af9550e294e190a4e8b127f1dd9bfb2e
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107994
+  packageName: Maestro - Midi Player Tool Kit - Free
+  packageVersion: 2.16.2
+  assetPath: Assets/MidiPlayer/Resources/MidiDB/Debussy - Poissons d'or.bytes
+  uploadId: 813236

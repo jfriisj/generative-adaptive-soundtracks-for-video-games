@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 084e709c62e7a824cbcad65f0ff80790
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107994
+  packageName: Maestro - Midi Player Tool Kit - Free
+  packageVersion: 2.16.2
+  assetPath: Assets/MidiPlayer/Resources/MidiDB/The Christmas Song.bytes
+  uploadId: 813236
