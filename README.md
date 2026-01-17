@@ -39,7 +39,7 @@ Pick ONE of the server options below (Docker CPU, Docker GPU, or Local Python), 
 
 Copy .env.example to `.env` and adjust settings as needed.
 ```bash
-cp midi-model/docker/.env.example midi-model/docker/.env
+cp .env.example .env
 ```
 
 #### Option A — Docker (CPU)
@@ -47,10 +47,6 @@ cp midi-model/docker/.env.example midi-model/docker/.env
 Size small models, no GPU needed slow generation.
 
 ```bash
-# Build image (optional)
-docker compose -f midi-model/docker/docker-compose.yml build midi-server-cpu
-compose -f 'midi-model\docker\docker-compose.yml' up -d --build 'midi-server-cpu'
-
 # Run
 docker compose -f midi-model/docker/docker-compose.yml up -d --build midi-server-cpu
 docker logs -f midi-server-cpu
@@ -81,9 +77,6 @@ docker run --rm --gpus all nvidia/cuda:12.1.0-base-ubuntu22.04 nvidia-smi
 Run:
 
 ```bash
-# Build image (optional)
-docker compose -f midi-model/docker/docker-compose.yml --profile cuda build midi-server-cuda
-
 # Run
 docker compose -f midi-model/docker/docker-compose.yml --profile cuda up -d --build midi-server-cuda
 docker logs -f midi-server-cuda
