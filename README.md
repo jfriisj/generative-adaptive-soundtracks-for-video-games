@@ -11,57 +11,34 @@ An adaptive music system that generates MIDI in response to game state and plays
 - Unity project under `Assets/` for runtime integration and demo scenes.
 - A Python-based MIDI generation model in `midi-model/src/` (Gradio app / model tools).
 - A Dockerized WebSocket MIDI generation server (CPU and CUDA) under `midi-model/docker/`.
-- Documentation under `docs/` for integration and research guidance.
 
 This repository is primarily a research & integration project for generative adaptive music.
 
 
 ---
 
-## Quick Start (Docker MIDI generator + Unity)
+docker run --rm --gpus all nvidia/cuda:12.1.0-base-ubuntu22.04 nvidia-smi
+## Quick Start (Run the Unity demo)
 
-The easiest way to run the MIDI generator is via Docker Compose. The Unity project connects to the WebSocket server on:
+The Unity project expects a MIDI generator server reachable via WebSocket (default):
 
 - `ws://localhost:8766`
 
-### 1) Prerequisites
+Pick ONE of the server options below (Docker CPU, Docker GPU, or Local Python), then run the Unity scene.
 
-- Unity (project version is defined in `ProjectSettings/ProjectVersion.txt`)
-- Docker Desktop
+### 0) Unity prerequisites
 
-Unity package dependency:
+- Unity version: see `ProjectSettings/ProjectVersion.txt`
+- Import `BclPackage.unitypackage` (required): Unity → `Assets -> Import Package -> Custom Package...` → select `BclPackage.unitypackage` from the repo root.
 
-- Import `BclPackage.unitypackage` (required). In Unity: `Assets -> Import Package -> Custom Package...` and select `BclPackage.unitypackage` from the repo root.
+### 1) Start a MIDI server (choose one)
 
-Recommended:
+#### Option A — Docker (CPU) (recommended)
 
-```bash
-copy .env.example .env
-```
-
-For CUDA/GPU mode additionally:
-
-- NVIDIA GPU + driver
-- WSL2 backend enabled in Docker Desktop
-
-GPU sanity check:
-
-```bash
-nvidia-smi
-docker run --rm --gpus all nvidia/cuda:12.1.0-base-ubuntu22.04 nvidia-smi
-```
-
-### 2) Start the MIDI server (CPU)
-
-From the repo root:
+Size small models, no GPU needed slow generation.
 
 ```bash
 docker compose -f midi-model/docker/docker-compose.yml up -d --build midi-server-cpu
-```
-
-Tail logs:
-
-```bash
 docker logs -f midi-server-cpu
 ```
 
@@ -71,23 +48,26 @@ Stop:
 docker compose -f midi-model/docker/docker-compose.yml stop midi-server-cpu
 ```
 
-### 3) Start the MIDI server (CUDA / GPU)
+#### Option B — Docker (CUDA / GPU)
 
-From the repo root:
+Larger models, faster generation using NVIDIA GPU.
+
+Prereqs:
+
+- NVIDIA GPU + driver
+- Docker Desktop using WSL2 backend
+
+GPU sanity check:
+
+```bash
+nvidia-smi
+docker run --rm --gpus all nvidia/cuda:12.1.0-base-ubuntu22.04 nvidia-smi
+```
+
+Run:
 
 ```bash
 docker compose -f midi-model/docker/docker-compose.yml --profile cuda up -d --build midi-server-cuda
-```
-
-Optional GPU selection:
-
-```bash
-set CUDA_VISIBLE_DEVICES=0
-```
-
-Tail logs:
-
-```bash
 docker logs -f midi-server-cuda
 ```
 
@@ -97,13 +77,39 @@ Stop:
 docker compose -f midi-model/docker/docker-compose.yml stop midi-server-cuda
 ```
 
-### 4) Run the Unity demo scene
+#### Option C — Local Python (no Docker)
+
+smaller models, no GPU needed slow generation.
+
+This runs the WebSocket server directly on your machine.
+
+Windows (PowerShell) example:
+
+```powershell
+py -m venv .venv-ws
+.\.venv-ws\Scripts\Activate.ps1
+python -m pip install -U pip
+pip install -r midi-model/websocket/requirements-websocket.txt
+
+# CPU
+python midi-model/websocket/ws_server_true_streaming.py --device cpu --host 127.0.0.1 --port 8766
+```
+
+GPU note:
+
+- If you want ONNX Runtime CUDA, install `onnxruntime-gpu` and run with `--device cuda`.
+- If CUDA provider isn’t available, the server will fall back to CPU.
+
+### 2) Run the Unity demo scene
 
 - Open the Unity project.
 - Open the scene `Assets/Scenes/AdaptiveMusic.unity`.
 - Press Play.
 
-If you don’t hear music immediately, check the Unity Console for `[AdaptiveMusicSystem]` / `[WebSocketClient]` logs and ensure the container is up and listening on port `8766`.
+If you don’t hear music immediately:
+
+- Confirm the server is listening on port `8766`.
+- Check the Unity Console for `[AdaptiveMusicSystem]` / `[WebSocketClient]` logs.
 
 ---
 

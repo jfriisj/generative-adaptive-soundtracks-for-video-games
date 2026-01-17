@@ -280,11 +280,19 @@ def build_initial_prompt(
     return np.array(mid, dtype=np.int64)
 
 
-async def handler(websocket, path):
-    """WebSocket handler with true event streaming."""
+async def handler(websocket, path=None):
+    """WebSocket handler with true event streaming.
+
+    Compatible with websockets versions that call the handler with either:
+    - (websocket, path)  [older]
+    - (websocket)        [newer]
+    """
     global model_base, model_token, tokenizer, device
+    if path is None:
+        # websockets>=12 passes only the connection; path is available on the protocol.
+        path = getattr(websocket, "path", None)
     client_addr = websocket.remote_address
-    log(f"Client connected: {client_addr}")
+    log(f"Client connected: {client_addr} path={path}")
     
     try:
         async for message in websocket:
@@ -662,9 +670,18 @@ def main():
     # Load models
     log("Loading ONNX models...")
     try:
-        if device == "cuda":
+        available_providers = set(rt.get_available_providers())
+
+        if device == "cuda" and "CUDAExecutionProvider" in available_providers:
             providers = [("CUDAExecutionProvider", {"cudnn_conv_algo_search": "DEFAULT"})]
         else:
+            if device == "cuda":
+                log(
+                    "⚠️  CUDAExecutionProvider not available in onnxruntime; "
+                    "falling back to CPU. Install 'onnxruntime-gpu' for CUDA."
+                )
+            device = "cpu"
+            app_onnx.device = device
             providers = ["CPUExecutionProvider"]
 
         rt.set_default_logger_severity(3)
